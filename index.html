@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="fab.jpeg" type="image/x-icon">
+</head>
+<body>
+    <div class="container">
+        <div class="box">
+            <textarea name="text" id="text"placeholder="witing......"></textarea><br><br>
+    <button onclick="res()">click</button>
+        </div>
+    </div>
+    <script>
+        function res(){
+           var recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.onresult=function(event){
+                document.getElementById('text').value=event.results[0][0].transcript;
+            };
+            recognition.start();
+        }
+    </script>
+</body>
+</html>
